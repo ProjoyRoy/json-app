@@ -24,3 +24,14 @@ fourseven:scss
 fortawesome:fontawesome
 standard-minifier-css
 standard-minifier-js
+twbs:bootstrap
+aldeed:collection2
+aldeed:autoform
+aldeed:delete-button
+momentjs:moment
+accounts-password
+ian:accounts-ui-bootstrap-3
+natestrauser:font-awesome
+alanning:roles
+dburles:collection-helpers
+arillo:flow-router-helpers
