@@ -7,9 +7,16 @@ FlowRouter.route('/', {
 });
 
 // Home Page
-FlowRouter.route('/dashboard', {
-    name: 'dashboard',
-    action() {
-        BlazeLayout.render("AppLayout", {main: "Dashboard"});
-    }
+// FlowRouter.route('/dashboard', {
+//     name: 'dashboard',
+//     action() {
+//         BlazeLayout.render("AppLayout", {main: "Dashboard"});
+//     }
+// });
+
+FlowRouter.route('/posts', {
+	name: 'post',
+	action() {
+			BlazeLayout.render("PostLayout", {main: "Post"});
+	}
 });
