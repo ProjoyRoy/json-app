@@ -15,8 +15,15 @@ FlowRouter.route('/', {
 // });
 
 FlowRouter.route('/posts', {
-	name: 'post',
+	name: 'posts',
 	action() {
-			BlazeLayout.render("PostLayout", {main: "Post"});
+			BlazeLayout.render("AppLayout", {main: "Posts"});
 	}
+});
+
+FlowRouter.route('/posts/:id', {
+    name: 'single-post',
+    action() {
+        BlazeLayout.render('AppLayout', {main: 'SinglePost'});
+    }
 });
