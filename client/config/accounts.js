@@ -5,3 +5,7 @@ Accounts.onLogin(function() {
     return FlowRouter.go(redirect);
   }
 });
+
+Accounts.onLogout(function() {
+	return FlowRouter.redirect('/');
+});
