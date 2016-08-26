@@ -1,0 +1,12 @@
+<template name="HealthLibrary">
+    {{> NewHealthLibraryItem}}
+    <section class="hl-items">
+        {{#if Template.subscriptionsReady}}
+            {{#each healthLibraryItems}}
+                {{> HealthLibraryItem}}
+            {{/each}}
+        {{else}}
+        <p>Loading...</p>
+        {{/if}}
+    </section>
+</template>

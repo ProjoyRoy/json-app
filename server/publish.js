@@ -8,3 +8,14 @@ Meteor.publish('singlePost', function(id) {
         _id: id
     });
 });
+
+Meteor.publish('healthLibrary', function() {
+    return HealthLibrary.find({});
+});
+
+Meteor.publish('healthLibraryItem', function(id) {
+    check(id, String);
+    return HealthLibrary.find({
+        _id: id
+    });
+});

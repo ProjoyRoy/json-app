@@ -28,13 +28,21 @@ exposed.route('/', {
 loggedIn.route('/posts', {
 	name: 'posts',
 	action() {
-			BlazeLayout.render("AppLayout", {main: "Posts"});
+		BlazeLayout.render("AppLayout", {main: "Posts"});
 	}
 });
 
 loggedIn.route('/posts/:id', {
     name: 'single-post',
     action() {
-        BlazeLayout.render('AppLayout', {main: 'SinglePost'});
+        BlazeLayout.render('AppLayout', {main: "SinglePost"});
+    }
+});
+
+//Health Library
+loggedIn.route('/healthLibrary', {
+    name: 'healthLibrary',
+    action() {
+        BlazeLayout.render('AppLayout', {main: "HealthLibrary"});
     }
 });
