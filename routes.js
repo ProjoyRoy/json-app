@@ -24,6 +24,7 @@ exposed.route('/', {
     }
 });
 
+//Posts
 loggedIn.route('/posts', {
 	name: 'posts',
 	action() {
