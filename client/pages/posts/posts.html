@@ -1,0 +1,31 @@
+<template name="Posts">
+    {{> NewPost}}
+    <section class="posts">
+        {{#if Template.subscriptionsReady}}
+            {{#each posts}}
+                {{> Post}}
+            {{/each}}
+        {{else}}
+        <p>Loading...</p>
+        {{/if}}
+    </section>
+</template>
+
+<template name="Post">
+    <article class="post">
+        <h3>{{title}}</h3>
+        <p>{{owner}}</p>
+        <a href="/posts/{{_id}}">View Details</a>
+    </article>
+</template>
+
+<template name="SinglePost">
+    <h1>{{post.title}}</h1>
+    <div>{{post.content}}</div>
+</template>
+
+<template name="NewPost">
+    <div>
+        {{> quickForm collection='Posts' id='insertPostForm' type="insert"}}
+    </div>
+</template>
