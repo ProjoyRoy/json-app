@@ -1,0 +1,30 @@
+<template name="HealthLibrary">
+    {{> NewHealthLibraryItem}}
+    <section class="hl-items">
+        {{#if Template.subscriptionsReady}}
+            {{#each healthLibraryItems}}
+                {{> HealthLibraryItem}}
+            {{/each}}
+        {{else}}
+        <p>Loading...</p>
+        {{/if}}
+    </section>
+</template>
+
+<template name="HealthLibraryItem">
+    <article class="hl-item">
+        <h3>{{title}}</h3>
+        <a href="/healthLibrary/{{_id}}">View Details</a>
+    </article>
+</template>
+
+<template name="SingleHealthLibraryItem">
+    <h1>{{healthLibraryItem.title}}</h1>
+    <div>{{healthLibraryItem.description}}</div>
+</template>
+
+<template name="NewHealthLibraryItem">
+    <div>
+        {{> quickForm collection='HealthLibrary' id='insertPostForm' type="insert"}}
+    </div>
+</template>

@@ -33,7 +33,7 @@ loggedIn.route('/posts', {
 });
 
 loggedIn.route('/posts/:id', {
-    name: 'single-post',
+    name: 'singlePost',
     action() {
         BlazeLayout.render('AppLayout', {main: "SinglePost"});
     }
@@ -44,5 +44,12 @@ loggedIn.route('/healthLibrary', {
     name: 'healthLibrary',
     action() {
         BlazeLayout.render('AppLayout', {main: "HealthLibrary"});
+    }
+});
+
+loggedIn.route('/healthLibrary/:id', {
+    name: 'singleHealthLibraryItem',
+    action() {
+        BlazeLayout.render('AppLayout', {main: "SingleHealthLibraryItem"});
     }
 });

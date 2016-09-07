@@ -7,6 +7,6 @@ Template.HealthLibrary.onCreated(function(){
 
 Template.HealthLibrary.helpers({
     healthLibraryItems: () => {
-        return healthLibrary.find({});
+        return HealthLibrary.find({});
     }
 });
