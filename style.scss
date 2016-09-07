@@ -69,6 +69,7 @@ input[type="password"] {
     @extend .btn;
     background: $accent;
     border: solid 2px $accent;
+
     &:hover {
         background: $accent - 30;
         border-color: $accent - 30;
@@ -203,7 +204,7 @@ table {
     }
     th {
         text-transform: uppercase;
-        background: $dblue;
+        background: $dgreen;
         color: #fff;
     }
     &.edit-mode {
@@ -212,6 +213,6 @@ table {
 }
 
 .user_id {
-    color: $blue;
+    color: $green;
     cursor: pointer;
 }
