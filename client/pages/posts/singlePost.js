@@ -12,3 +12,10 @@ Template.SinglePost.helpers({
         return Posts.findOne({_id: id});
     }
 });
+
+Template.SinglePost.helpers({
+    post_json: () => {
+        var id = FlowRouter.getParam('id');
+        return Posts.find({_id: id}).fetch();
+    }
+});

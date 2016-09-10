@@ -14,13 +14,13 @@
 <template name="HealthLibraryItem">
     <article class="hl-item">
         <h3>{{title}}</h3>
-        <a href="/healthLibrary/{{_id}}">View Details</a>
+        <a href="/healthLibrary/{{_id}}">View JSON</a>
     </article>
 </template>
 
 <template name="SingleHealthLibraryItem">
     <h1>{{healthLibraryItem.title}}</h1>
-    <div>{{healthLibraryItem.description}}</div>
+    <div>{{json2html healthLibraryItem}}</div>
     <a href="/healthLibrary/">
         <button class="btn btn-primary">Go back</button>
     </a>

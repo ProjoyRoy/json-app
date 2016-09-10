@@ -13,3 +13,10 @@ Template.SingleHealthLibraryItem.helpers({
         return HealthLibrary.findOne({_id: id});
     }
 });
+
+Template.SingleHealthLibraryItem.helpers({
+    healthLibraryItem_json: () => {
+        var id = FlowRouter.getParam('id');
+        return HealthLibrary.find({_id: id}).fetch();
+    }
+});

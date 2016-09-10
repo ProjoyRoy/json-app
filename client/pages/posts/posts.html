@@ -14,15 +14,13 @@
 <template name="Post">
     <article class="post">
         <h3>{{title}}</h3>
-        <p>{{owner}}</p>
-        <a href="/posts/{{_id}}">View Details</a>
+        <a href="/posts/{{_id}}">View JSON</a>
     </article>
 </template>
 
 <template name="SinglePost">
     <h1>{{post.title}}</h1>
-    <div>{{post.content}}</div>
-    <div>{{post.owner}}</div>
+    <div>{{json2html post_json}}</div>
     <a href="/posts/">
         <button class="btn btn-primary">Go back</button>
     </a>
