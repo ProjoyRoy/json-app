@@ -3,9 +3,11 @@
         <ul>
         		{{> loginButtons}}
             <li><a href="/">Home</a></li>
+            {{#if currentUser}}
             <li><a href="/admin">Dashboard</a></li>
             <li><a href="/posts">Posts</a></li>
             <li><a href="/healthLibrary">Health Library</a></li>
+            {{/if}}
         </ul>
     </nav>
 </template>
