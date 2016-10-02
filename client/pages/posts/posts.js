@@ -10,3 +10,4 @@ Template.Posts.helpers({
         return Posts.find({});
     }
 });
+
