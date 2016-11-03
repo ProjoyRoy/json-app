@@ -4,20 +4,22 @@ var loggedIn = FlowRouter.group({
       var route;
       if (!(Meteor.loggingIn() || Meteor.userId())) {
         route = FlowRouter.current();
-        if (route.route.name !== 'home') {
+        if (route.route.name !== 'Home') {
           Session.set('redirectAfterLogin', route.path);
         }
-        return FlowRouter.go('home');
+        return FlowRouter.go('Home');
       }
     }
   ]
 });
 
-var navbar = loggedIn.group({});
+var navbar = loggedIn.group({
+  name: "navbar"
+});
 
 // Home Page
 navbar.route('/', {
-    name: 'home',
+    name: 'Home',
     action() {
         BlazeLayout.render("HomeLayout", {main: "Home"});
     }
@@ -25,7 +27,7 @@ navbar.route('/', {
 
 //Posts
 navbar.route('/posts', {
-	name: 'posts',
+	name: 'Posts',
 	action() {
 		BlazeLayout.render("AppLayout", {main: "Posts"});
 	}
@@ -40,7 +42,7 @@ loggedIn.route('/posts/:id', {
 
 //Health Library
 navbar.route('/healthLibrary', {
-    name: 'healthLibrary',
+    name: 'Health Library',
     action() {
         BlazeLayout.render('AppLayout', {main: "HealthLibrary"});
     }

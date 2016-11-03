@@ -2,12 +2,12 @@
     <nav class="main-nav">
         <ul>
         	{{> loginButtons}}
-            <li><a href="/">Home</a></li>
             {{#if isInRole 'admin'}}
                 <li><a href="/admin">Dashboard</a></li>
             {{/if}}
-            <li><a href="/posts">Posts</a></li>
-            <li><a href="/healthLibrary">Health Library</a></li>
+            {{#each groupRoutes}}
+                <li><a href="{{path}}">{{name}}</a></li>
+            {{/each}}
         </ul>
     </nav>
 </template>
