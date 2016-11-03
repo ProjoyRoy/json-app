@@ -4,7 +4,7 @@ ProjoyRoy/json-app:
   # Ubuntu 14.04
 
   PreBuild:
-  - directory echo "Begin PreBuild"
+  - echo "Begin PreBuild"
   - nvm install 4.6.1
   - sudo curl https://install.meteor.com | /bin/sh
 
