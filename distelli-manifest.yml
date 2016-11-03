@@ -1,0 +1,63 @@
+ProjoyRoy/json-app:
+  # Distelli Manifest for json-app
+  # this example assumes the build and deploy servers are:
+  # Ubuntu 14.04
+
+  PreBuild:
+  - directory echo "Begin PreBuild"
+  - nvm install 4.6.1
+  - sudo curl https://install.meteor.com | /bin/sh
+
+  Build:
+  - echo "Begin Build"
+  - /usr/local/bin/meteor build ./build --directory
+
+  PkgInclude:
+    - '*'
+
+  PkgExclude:
+    - '/.meteor/local/'
+
+  PreInstall:
+    - echo "Begin PreInstall"
+    - sudo apt-get -y update
+    - sudo apt-get install -y mongodb-server
+    - sudo apt-get -y install build-essential libssl-dev git curl
+    - cd /tmp
+    - wget http://nodejs.org/dist/v4.6.1/node-v4.6.1-linux-x64.tar.gz
+    - tar xvzf node-v4.6.1-linux-x64.tar.gz
+    - sudo rm -rf /opt/nodejs
+    - sudo mv node-v4.6.1-linux-x64 /opt/nodejs
+    - sudo ln -sf /opt/nodejs/bin/node /usr/bin/node
+    - sudo ln -sf /opt/nodejs/bin/npm /usr/bin/npm
+    - sudo apt-get install -y software-properties-common
+    - sudo apt-get install -y python-software-properties python g++ make
+    - if [ -a /usr/local/bin/meteor ]; then
+    -     echo "Meteor is already installed"
+    - else
+    -     sudo curl https://install.meteor.com | /bin/sh
+    - fi
+    - if [ -a /etc/nginx ]; then
+    -     echo "NGINX is already installed"
+    - else
+    -     sudo apt-get install nginx -y
+    - fi
+
+  PostInstall:
+    - echo "Begin PostInstall"
+    - sudo rm -rf /etc/nginx/sites-enabled/default
+    - sudo rm -rf /etc/nginx/sites-available/meteor
+    - sudo mv meteor /etc/nginx/sites-available/meteor
+    - sudo ln -sf /etc/nginx/sites-available/meteor /etc/nginx/sites-enabled/meteor
+    - cd build/bundle/programs/server/
+    - npm install
+
+  Env:
+    - PORT: 3000
+    - MONGO_URL: mongodb://localhost:27017/jsapp
+    - ROOT_URL: http://gittu.tech
+
+  Exec:
+    - echo "Starting Meteor Application"
+    - sudo service nginx restart -y
+    - /usr/bin/node build/bundle/main.js
