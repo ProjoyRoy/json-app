@@ -1,5 +1,3 @@
-var exposed = FlowRouter.group({});
-
 var loggedIn = FlowRouter.group({
   triggersEnter: [
     function() {
@@ -15,9 +13,10 @@ var loggedIn = FlowRouter.group({
   ]
 });
 
+var navbar = loggedIn.group({});
 
 // Home Page
-exposed.route('/', {
+navbar.route('/', {
     name: 'home',
     action() {
         BlazeLayout.render("HomeLayout", {main: "Home"});
@@ -25,7 +24,7 @@ exposed.route('/', {
 });
 
 //Posts
-loggedIn.route('/posts', {
+navbar.route('/posts', {
 	name: 'posts',
 	action() {
 		BlazeLayout.render("AppLayout", {main: "Posts"});
@@ -40,7 +39,7 @@ loggedIn.route('/posts/:id', {
 });
 
 //Health Library
-loggedIn.route('/healthLibrary', {
+navbar.route('/healthLibrary', {
     name: 'healthLibrary',
     action() {
         BlazeLayout.render('AppLayout', {main: "HealthLibrary"});
