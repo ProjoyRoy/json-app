@@ -11,6 +11,7 @@ blaze-html-templates@1.0.4    # Compile .html files into Meteor Blaze views
 session@1.1.6                 # Client-side reactive dictionary for your app
 jquery@1.11.9                  # Helpful client-side library
 tracker@1.1.0                 # Meteor's client-side reactive programming library
+shell-server
 
 es5-shim@4.6.14                # ECMAScript 5 compatibility for older browsers.
 ecmascript@0.5.8              # Enable ECMAScript2015+ syntax in app code
@@ -22,20 +23,20 @@ kadira:blaze-layout
 
 check@1.2.3
 fourseven:scss
-fortawesome:fontawesome
 standard-minifier-css@1.2.0
 standard-minifier-js@1.2.0
-twbs:bootstrap
 aldeed:collection2
+matb33:collection-hooks
+aldeed:simple-schema
 aldeed:autoform
 aldeed:delete-button
+dburles:collection-helpers
+alanning:roles
 momentjs:moment
+twbs:bootstrap
 accounts-password@1.3.0
 natestrauser:font-awesome
-alanning:roles
-dburles:collection-helpers
 arillo:flow-router-helpers
-darkhand3001:flow-db-admin
-shell-server
 darkhand3001:json2html
 ian:accounts-ui-bootstrap-3
+darkhand3001:flow-db-admin
